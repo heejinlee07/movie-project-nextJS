@@ -40,7 +40,6 @@ export default function Movies() {
                 movieList?.map(movie => (
                     <MoviesList key={movie.id} movie={movie} />
                 ))}
-            <div>movie page</div>
         </div>
     )
 }
