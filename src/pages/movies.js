@@ -26,15 +26,9 @@ export default function Movies() {
     return (
         <div>
             <Header />
-            <Link href='movies'>
-                <Button
-                    padding={5}
-                    margin={'5px'}
-                    onClick={() => Router.back()}
-                >
-                    뒤로가기
-                </Button>
-            </Link>
+            <Button padding={5} margin={'5px'} onClick={() => Router.back()}>
+                뒤로가기
+            </Button>
             {isLoading && <h1>Now Loading...</h1>}
             {!isLoading &&
                 movieList?.map(movie => (

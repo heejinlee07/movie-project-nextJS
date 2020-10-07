@@ -7,5 +7,5 @@ export const getAllMovies = () => {
 
 //특정 영화 가져오기
 export const getDetailMovies = id => {
-    return listApi.get(`/movie/${id}`)
+    return detailApi.get(`?movie_id=${id}`)
 }

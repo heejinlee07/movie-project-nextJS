@@ -9,20 +9,12 @@ function Header() {
         <div>
             <HeaderWrapper>
                 <Link href='/'>
-                    <Button
-                        padding={5}
-                        margin={'5px'}
-                        onClick={() => Router.push('/')}
-                    >
+                    <Button padding={5} margin={'5px'}>
                         Home
                     </Button>
                 </Link>
                 <Link href='movies'>
-                    <Button
-                        padding={5}
-                        margin={'5px'}
-                        onClick={() => Router.push('/movies')}
-                    >
+                    <Button padding={5} margin={'5px'}>
                         Movies
                     </Button>
                 </Link>
