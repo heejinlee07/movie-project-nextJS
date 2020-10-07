@@ -6,20 +6,18 @@ import Button from '../components/common/Button'
 
 function Header() {
     return (
-        <div>
-            <HeaderWrapper>
-                <Link href='/'>
-                    <Button padding={5} margin={'5px'}>
-                        Home
-                    </Button>
-                </Link>
-                <Link href='movies'>
-                    <Button padding={5} margin={'5px'}>
-                        Movies
-                    </Button>
-                </Link>
-            </HeaderWrapper>
-        </div>
+        <HeaderWrapper>
+            <Link href='/'>
+                <Button padding={5} margin={'10px'}>
+                    Home
+                </Button>
+            </Link>
+            <Link href='movies'>
+                <Button padding={5} margin={'10px'}>
+                    Movies
+                </Button>
+            </Link>
+        </HeaderWrapper>
     )
 }
 
