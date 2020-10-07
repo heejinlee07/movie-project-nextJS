@@ -11,6 +11,8 @@ export const Wrapper = styled.div`
 export const MovieImg = styled.img`
     border-radius: 10px;
     padding: 10px;
+    height: 350px;
+    width: 300px;
 `
 
 export const MovieDetails = styled.div`

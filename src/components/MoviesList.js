@@ -1,5 +1,4 @@
-import React from 'react'
-import Router from 'next/router'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import Button from './common/Button'
 import {
@@ -14,6 +13,7 @@ import {
 
 export default function MoviesList({ movie }) {
     const { id, title, summary, medium_cover_image, rating } = movie
+
     return (
         <Wrapper>
             <MovieImg src={medium_cover_image} />
