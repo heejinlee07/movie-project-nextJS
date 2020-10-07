@@ -18,7 +18,7 @@ import {
 function TargetMovie({ id }) {
   // console.log(targetedId)
   const [isLoading, setLoading] = useState(false);
-  const [detailMovieList, setDetailMovieList] = useState([]);
+  const [detailMovie, setDetailMovie] = useState([]);
 
   const router = useRouter();
 
@@ -30,10 +30,11 @@ function TargetMovie({ id }) {
           data: { movie },
         },
       } = await getDetailMovies(id);
-      setDetailMovieList(movie);
+      setDetailMovie(movie);
       setLoading(false);
     }
-    getDetailList();
+
+    if (id) getDetailList();
   }, [id]);
 
   const {
@@ -43,7 +44,7 @@ function TargetMovie({ id }) {
     download_count,
     description_full,
     rating,
-  } = detailMovieList;
+  } = detailMovie;
 
   return (
     <>

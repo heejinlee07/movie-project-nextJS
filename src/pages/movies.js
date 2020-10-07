@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
+import Head from "next/head";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useRouter } from "next/router";
-import Router from "next/router";
 import Header from "../components/Header";
 import { getAllMovies } from "../services/movieApi";
 import MoviesList from "../components/MoviesList";
@@ -37,26 +36,31 @@ export default function Movies() {
   };
 
   return (
-    <div>
-      <Header />
-      <InfiniteScroll
-        dataLength={allMovies.length}
-        next={getNextMovies}
-        loader={<h1>is Loading...</h1>}
-        inverse={false}
-        hasMore={true}
-      >
-        <Button padding={5} margin={"5px"} onClick={() => router.back()}>
-          뒤로가기
-        </Button>
-        <Button onClick={() => sortedMovies("title")}>title 정렬</Button>
-        <Button onClick={() => sortedMovies("year")}>year 정렬</Button>
-        <Button onClick={() => sortedMovies("rating")}>rating 정렬</Button>
-        {isLoading && <h1>Now Loading...</h1>}
-        {allMovies?.map((movie) => (
-          <MoviesList key={movie.id} movie={movie} />
-        ))}
-      </InfiniteScroll>
-    </div>
+    <>
+      <Head>
+        <title>영화리스트</title>
+      </Head>
+      <div>
+        <Header />
+        <InfiniteScroll
+          dataLength={allMovies.length}
+          next={getNextMovies}
+          loader={<h1>is Loading...</h1>}
+          inverse={false}
+          hasMore={true}
+        >
+          <Button padding={5} margin={"5px"} onClick={() => router.back()}>
+            뒤로가기
+          </Button>
+          <Button onClick={() => sortedMovies("title")}>title 정렬</Button>
+          <Button onClick={() => sortedMovies("year")}>year 정렬</Button>
+          <Button onClick={() => sortedMovies("rating")}>rating 정렬</Button>
+          {isLoading && <h1>Now Loading...</h1>}
+          {allMovies?.map((movie) => (
+            <MoviesList key={movie.id} movie={movie} />
+          ))}
+        </InfiniteScroll>
+      </div>
+    </>
   );
 }

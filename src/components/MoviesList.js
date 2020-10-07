@@ -16,14 +16,14 @@ export default function MoviesList({ movie }) {
 
   return (
     <Wrapper>
-      <MovieImg src={medium_cover_image} />
+      {medium_cover_image ? <MovieImg src={medium_cover_image} /> : ""}
       <MovieDetails>
         <MovieTitle>{title}</MovieTitle>
         <MovieSummary>{summary}</MovieSummary>
       </MovieDetails>
       <MoviesMores>
         <MovieRating> ★{rating}</MovieRating>
-        <Link href="/movie/[id]" as={`movie/${id}`}>
+        <Link href="/movie/[id]" as={`movie/${id}`} passHref>
           <Button key={id} width={"50px"}>
             더보기
           </Button>
