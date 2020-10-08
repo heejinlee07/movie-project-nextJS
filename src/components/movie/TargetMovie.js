@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import Button from '../common/button'
 import { useRouter } from 'next/router'
 import {

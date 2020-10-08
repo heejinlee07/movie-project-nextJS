@@ -13,7 +13,7 @@ import {
     MoviesMores
 } from './MoviesList.styles'
 import TargetMovieModalContainer from '../../containers/TargetMovieModalContainer'
-import Modal from '../../components/common/modal/modal'
+
 const MoviesList = ({ movie }) => {
     const { id, title, year, summary, medium_cover_image, rating } = movie
 

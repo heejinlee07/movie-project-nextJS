@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
+import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Button from '../button'
 import Dialog from '@material-ui/core/Dialog'
@@ -7,6 +9,15 @@ import MuiDialogActions from '@material-ui/core/DialogActions'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 import Typography from '@material-ui/core/Typography'
+import {
+    MovieWrapper,
+    MoviePoster,
+    MovieDetail,
+    MovieLike,
+    MovieDownload,
+    MovieRating,
+    MovieSummary
+} from './modal.styles'
 
 const styles = theme => ({
     root: {
@@ -52,11 +63,11 @@ const DialogActions = withStyles(theme => ({
     }
 }))(MuiDialogActions)
 
-export default function CustomizedDialogs({ detailMovie, isLoading }) {
-    console.log('k', detailMovie)
+export default function CustomizedDialogs({ detailMovie, isLoadging }) {
+    console.log('target', detailMovie)
 
     const {
-        large_cover_image,
+        medium_cover_image,
         title_long,
         like_count,
         download_count,
@@ -77,31 +88,39 @@ export default function CustomizedDialogs({ detailMovie, isLoading }) {
         <div>
             <Button onClick={handleClickOpen}>modal</Button>
             <Dialog onClose={handleClose} open={open}>
-                <DialogTitle id='customized-dialog-title' onClose={handleClose}>
-                    {title_long}
-                </DialogTitle>
-                <DialogContent dividers>
-                    <Typography gutterBottom>
-                        Cras mattis consectetur purus sit amet fermentum. Cras
-                        justo odio, dapibus ac facilisis in, egestas eget quam.
-                        Morbi leo risus, porta ac consectetur ac, vestibulum at
-                        eros.
-                    </Typography>
-                    <Typography gutterBottom>
-                        Praesent commodo cursus magna, vel scelerisque nisl
-                        consectetur et. Vivamus sagittis lacus vel augue laoreet
-                        rutrum faucibus dolor auctor.
-                    </Typography>
-                    <Typography gutterBottom>
-                        Aenean lacinia bibendum nulla sed consectetur. Praesent
-                        commodo cursus magna, vel scelerisque nisl consectetur
-                        et. Donec sed odio dui. Donec ullamcorper nulla non
-                        metus auctor fringilla.
-                    </Typography>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose}>Save changes</Button>
-                </DialogActions>
+                {isLoadging && <h1>Now Loading...</h1>}
+                {!isLoadging && (
+                    <>
+                        <DialogTitle
+                            id='customized-dialog-title'
+                            onClose={handleClose}
+                        >
+                            {title_long}
+                        </DialogTitle>
+                        <DialogContent dividers>
+                            <MovieWrapper>
+                                <MoviePoster src={medium_cover_image} />
+                                <MovieDetail>
+                                    <MovieLike>
+                                        Like 👍 : {like_count}
+                                    </MovieLike>
+                                    <MovieDownload>
+                                        Download 💙 : {download_count}
+                                    </MovieDownload>
+                                    <MovieRating> ★{rating}</MovieRating>
+                                    <Typography gutterBottom>
+                                        <MovieSummary>
+                                            {description_full}
+                                        </MovieSummary>
+                                    </Typography>
+                                </MovieDetail>
+                            </MovieWrapper>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleClose}>닫기</Button>
+                        </DialogActions>
+                    </>
+                )}
             </Dialog>
         </div>
     )
