@@ -1,21 +1,14 @@
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
+import { createGlobalStyle } from 'styled-components'
+import reset from 'styled-reset'
 
 const GlobalStyles = createGlobalStyle`
   ${reset}
   *, *::before, *::after {
     box-sizing: border-box;
   }
-  legend, label {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  margin: -1px;
-  clip-path: polygon(0 0, 0 0, 0 0);
-}
+
   html {
-    font-size: 10px;
+    font-size: 12px;
   }
   body{
     font-size: 1.4rem;
@@ -43,6 +36,6 @@ const GlobalStyles = createGlobalStyle`
   button {
     cursor: pointer;
   }
-`;
+`
 
-export default GlobalStyles;
+export default GlobalStyles

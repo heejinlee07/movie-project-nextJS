@@ -1,21 +1,28 @@
-import { useRouter } from "next/router";
-import Head from "next/head";
-import Header from "../../../components/Header";
-import TargetMovie from "../../../components/TargetMovie";
+import { useRouter } from 'next/router'
+import styled from 'styled-components'
+import Head from 'next/head'
+import Header from '../../../components/Header'
+import TargetMovie from '../../../components/TargetMovie'
+
+const Wrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+`
 
 export default function Index() {
-  const router = useRouter();
-  const { id } = router.query;
+    const router = useRouter()
+    const { id } = router.query
 
-  return (
-    <>
-      <Head>
-        <title>영화 {id}</title>
-      </Head>
-      <div>
-        <Header />
-        <TargetMovie id={id} />
-      </div>
-    </>
-  );
+    return (
+        <>
+            <Head>
+                <title>영화 {id}</title>
+            </Head>
+            <Header />
+            <Wrapper>
+                <TargetMovie id={id} />
+            </Wrapper>
+        </>
+    )
 }

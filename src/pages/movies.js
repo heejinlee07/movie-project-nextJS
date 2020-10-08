@@ -1,66 +1,93 @@
-import { useEffect, useState } from "react";
-import Head from "next/head";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { useRouter } from "next/router";
-import Header from "../components/Header";
-import { getAllMovies } from "../services/movieApi";
-import MoviesList from "../components/MoviesList";
-import Button from "../components/common/Button";
+import { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import Head from 'next/head'
+import InfiniteScroll from 'react-infinite-scroll-component'
+import { useRouter } from 'next/router'
+import Header from '../components/Header'
+import { getAllMovies } from '../services/movieApi'
+import MoviesList from '../components/MoviesList'
+import Button from '../components/common/Button'
+
+const ButtonList = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+`
+
+const MoviesWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+`
 
 export default function Movies() {
-  const [isLoading, setLoading] = useState(false);
-  const [allMovies, setAllMovies] = useState([]);
-  const [page, setPage] = useState(1);
-  const [sort, setSort] = useState("date_added");
+    const [isLoading, setLoading] = useState(false)
+    const [allMovies, setAllMovies] = useState([])
+    const [page, setPage] = useState(1)
+    const [sort, setSort] = useState('date_added')
 
-  const router = useRouter();
-  useEffect(() => {
-    async function getMovieList() {
-      setLoading(true);
-      const {
-        data: {
-          data: { movies },
-        },
-      } = await getAllMovies(page, sort);
-      setAllMovies((_allMovies) => _allMovies.concat(movies));
-      setLoading(false);
+    const router = useRouter()
+    useEffect(() => {
+        async function getMovieList() {
+            setLoading(true)
+            const {
+                data: {
+                    data: { movies }
+                }
+            } = await getAllMovies(page, sort)
+            setAllMovies(_allMovies => _allMovies.concat(movies))
+            setLoading(false)
+        }
+        getMovieList()
+    }, [page, sort])
+
+    const getNextMovies = () => setPage(page + 1)
+
+    const sortedMovies = sort => {
+        setAllMovies([])
+        setSort(sort)
     }
-    getMovieList();
-  }, [page, sort]);
 
-  const getNextMovies = () => setPage(page + 1);
-
-  const sortedMovies = (sort) => {
-    setAllMovies([]);
-    setSort(sort);
-  };
-
-  return (
-    <>
-      <Head>
-        <title>영화리스트</title>
-      </Head>
-      <div>
-        <Header />
-        <InfiniteScroll
-          dataLength={allMovies.length}
-          next={getNextMovies}
-          loader={<h1>is Loading...</h1>}
-          inverse={false}
-          hasMore={true}
-        >
-          <Button padding={5} margin={"5px"} onClick={() => router.back()}>
-            뒤로가기
-          </Button>
-          <Button onClick={() => sortedMovies("title")}>title 정렬</Button>
-          <Button onClick={() => sortedMovies("year")}>year 정렬</Button>
-          <Button onClick={() => sortedMovies("rating")}>rating 정렬</Button>
-          {isLoading && <h1>Now Loading...</h1>}
-          {allMovies?.map((movie) => (
-            <MoviesList key={movie.id} movie={movie} />
-          ))}
-        </InfiniteScroll>
-      </div>
-    </>
-  );
+    return (
+        <>
+            <Head>
+                <title>영화리스트</title>
+            </Head>
+            <div>
+                <Header />
+                <InfiniteScroll
+                    dataLength={allMovies.length}
+                    next={getNextMovies}
+                    loader={<h1>is Loading...</h1>}
+                    inverse={false}
+                    hasMore={true}
+                >
+                    <ButtonList>
+                        <Button
+                            padding={5}
+                            margin={'5px'}
+                            onClick={() => router.back()}
+                        >
+                            홈으로
+                        </Button>
+                        <Button onClick={() => sortedMovies('title')}>
+                            제목순
+                        </Button>
+                        <Button onClick={() => sortedMovies('year')}>
+                            최신순
+                        </Button>
+                        <Button onClick={() => sortedMovies('rating')}>
+                            별점순
+                        </Button>
+                    </ButtonList>
+                    {isLoading && <h1>Now Loading...</h1>}
+                    {allMovies?.map(movie => (
+                        <MoviesWrapper>
+                            <MoviesList key={movie.id} movie={movie} />
+                        </MoviesWrapper>
+                    ))}
+                </InfiniteScroll>
+            </div>
+        </>
+    )
 }
