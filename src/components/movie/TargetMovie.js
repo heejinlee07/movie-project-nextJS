@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import Button from '../components/common/button'
+import Button from '../common/button'
 import { useRouter } from 'next/router'
-import { getDetailMovies } from '../services/movieApi'
 import {
     Wrapper,
     MovieImg,
@@ -15,26 +13,8 @@ import {
     MovieRating
 } from './TargetMovie.styles'
 
-const TargetMovie = ({ id }) => {
-    const [isLoading, setLoading] = useState(false)
-    const [detailMovie, setDetailMovie] = useState([])
-
+const TargetMovie = ({ isLoading, detailMovie }) => {
     const router = useRouter()
-
-    useEffect(() => {
-        const getDetailList = async () => {
-            setLoading(true)
-            const {
-                data: {
-                    data: { movie }
-                }
-            } = await getDetailMovies(id)
-            setDetailMovie(movie)
-            setLoading(false)
-        }
-
-        if (id) getDetailList()
-    }, [id])
 
     const {
         large_cover_image,

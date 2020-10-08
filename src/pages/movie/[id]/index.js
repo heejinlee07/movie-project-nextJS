@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import Head from 'next/head'
 import Header from '../../../components/header'
-import TargetMovie from '../../../containers/TargetMovie'
+import TargetMovieContainer from '../../../containers/TargetMovieContainer'
 
 const Wrapper = styled.div`
     display: flex;
@@ -21,7 +21,7 @@ const Index = () => {
             </Head>
             <Header />
             <Wrapper>
-                <TargetMovie id={id} />
+                <TargetMovieContainer id={id} />
             </Wrapper>
         </>
     )

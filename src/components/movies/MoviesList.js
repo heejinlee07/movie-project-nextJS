@@ -9,9 +9,11 @@ import {
     MovieYear,
     MovieSummary,
     MovieRating,
+    MoviesWrapper,
     MoviesMores
 } from './MoviesList.styles'
-
+import TargetMovieModalContainer from '../../containers/TargetMovieModalContainer'
+import Modal from '../../components/common/modal/modal'
 const MoviesList = ({ movie }) => {
     const { id, title, year, summary, medium_cover_image, rating } = movie
 
@@ -23,14 +25,17 @@ const MoviesList = ({ movie }) => {
                 <MovieYear>{year}</MovieYear>
                 <MovieSummary>{summary}</MovieSummary>
             </MovieDetails>
-            <MoviesMores>
+            <MoviesWrapper>
                 <MovieRating> ★{rating}</MovieRating>
-                <Link href='/movie/[id]' as={`movie/${id}`} passHref>
-                    <Button key={id} width={'45px'}>
-                        더보기
-                    </Button>
-                </Link>
-            </MoviesMores>
+                <MoviesMores>
+                    <TargetMovieModalContainer id={id} />
+                    <Link href='/movie/[id]' as={`movie/${id}`} passHref>
+                        <Button key={id} width={'45px'}>
+                            더보기
+                        </Button>
+                    </Link>
+                </MoviesMores>
+            </MoviesWrapper>
         </Wrapper>
     )
 }

@@ -45,12 +45,20 @@ export const MovieSummary = styled.div`
     /* white-space: nowrap; */
 `
 
-export const MoviesMores = styled.div`
+export const MoviesWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 10px;
     max-width: 10%;
+    position: relative;
 `
 
 export const MovieRating = styled.div``
+
+export const MoviesMores = styled.div`
+    display: flex;
+    position: absolute;
+    top: 320px;
+    right: 10px;
+`

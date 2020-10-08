@@ -5,8 +5,9 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { useRouter } from 'next/router'
 import Header from '../components/header'
 import { getAllMovies } from '../services/movieApi'
-import MoviesList from '../components/MovieList/MoviesList'
+import MoviesList from '../components/movies/MoviesList'
 import Button from '../components/common/button'
+import Modal from '../components/common/modal/modal'
 
 const ButtonList = styled.div`
     display: flex;
