@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import Button from './common/Button'
+import Button from '../common/button'
 import {
     Wrapper,
     MovieImg,

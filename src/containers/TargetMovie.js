@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Button from '../components/common/Button'
+import Button from '../components/common/button'
 import { useRouter } from 'next/router'
 import { getDetailMovies } from '../services/movieApi'
 import {
@@ -70,6 +70,7 @@ function TargetMovie({ id }) {
                     </MoviesMores>
                 </Wrapper>
             )}
+             
         </>
     )
 }

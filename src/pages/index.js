@@ -1,4 +1,4 @@
-import Header from '../components/Header'
+import Header from '../components/header'
 import { Wrapper, Introduce, List } from './index.styles'
 
 export default function Index() {
@@ -9,9 +9,6 @@ export default function Index() {
                 <Introduce>사용된 라이브러리 및 프레임 워크</Introduce>
                 <List>
                     <li>axios: ^0.20.0,</li>
-                    <li>lamport: ^0.0.0</li>
-                    <li>left-pad: ^1.3.0</li>
-                    <li>lodash: ^4.17.20</li>
                     <li>next: 9.5.3</li>
                     <li>react: 16.13.1</li>
                     <li>react-dom: 16.13.1</li>

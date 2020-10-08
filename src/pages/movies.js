@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import Head from 'next/head'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useRouter } from 'next/router'
-import Header from '../components/Header'
+import Header from '../components/header'
 import { getAllMovies } from '../services/movieApi'
-import MoviesList from '../components/MoviesList'
-import Button from '../components/common/Button'
+import MoviesList from '../components/MovieList/MoviesList'
+import Button from '../components/common/button'
 
 const ButtonList = styled.div`
     display: flex;
@@ -27,6 +27,7 @@ export default function Movies() {
     const [sort, setSort] = useState('date_added')
 
     const router = useRouter()
+
     useEffect(() => {
         async function getMovieList() {
             setLoading(true)

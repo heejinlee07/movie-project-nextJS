@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import Head from 'next/head'
-import Header from '../../../components/Header'
-import TargetMovie from '../../../components/TargetMovie'
+import Header from '../../../components/header'
+import TargetMovie from '../../../containers/TargetMovie'
 
 const Wrapper = styled.div`
     display: flex;
