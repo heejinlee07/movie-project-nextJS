@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Truncate from '../../utils/truncate'
 
 export const Wrapper = styled.div`
     display: flex;
@@ -35,7 +36,16 @@ export const MovieLike = styled.div``
 export const MovieDownload = styled.div``
 
 export const MovieSummary = styled.div`
+    ${Truncate('250px')}
+    overflow-x: hidden;
+    height: 200px;
     margin-top: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `
 
 export const MovieRating = styled.div``

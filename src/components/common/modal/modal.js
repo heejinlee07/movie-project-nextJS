@@ -64,8 +64,6 @@ const DialogActions = withStyles(theme => ({
 }))(MuiDialogActions)
 
 export default function CustomizedDialogs({ detailMovie, isLoadging }) {
-    console.log('target', detailMovie)
-
     const {
         medium_cover_image,
         title_long,

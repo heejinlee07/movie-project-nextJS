@@ -7,8 +7,14 @@ import Header from '../components/header'
 import { getAllMovies } from '../services/movieApi'
 import MoviesList from '../components/movies/MoviesList'
 import Button from '../components/common/button'
-import Modal from '../components/common/modal/modal'
 
+const Wrapper = styled.div`
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+`
 const ButtonList = styled.div`
     display: flex;
     justify-content: center;
@@ -43,7 +49,9 @@ const Movies = () => {
         getMovieList()
     }, [page, sort])
 
-    const getNextMovies = () => setPage(page + 1)
+    const getNextMovies = () => {
+        setPage(page + 1)
+    }
 
     const sortedMovies = sort => {
         setAllMovies([])
@@ -55,7 +63,7 @@ const Movies = () => {
             <Head>
                 <title>영화리스트</title>
             </Head>
-            <div>
+            <Wrapper>
                 <Header />
                 <InfiniteScroll
                     dataLength={allMovies.length}
@@ -63,6 +71,7 @@ const Movies = () => {
                     loader={<h1>is Loading...</h1>}
                     inverse={false}
                     hasMore={true}
+                    endMessage={<h1>You have seen it all!</h1>}
                 >
                     <ButtonList>
                         <Button
@@ -89,7 +98,7 @@ const Movies = () => {
                         </MoviesWrapper>
                     ))}
                 </InfiniteScroll>
-            </div>
+            </Wrapper>
         </>
     )
 }

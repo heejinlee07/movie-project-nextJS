@@ -3,7 +3,6 @@ import { getDetailMovies } from '../services/movieApi'
 import Modal from '../components/common/modal/modal'
 
 const TargetMovieModalContainer = ({ id }) => {
-    console.log('id', id)
     const [isLoading, setLoading] = useState(false)
     const [detailMovie, setDetailMovie] = useState([])
 

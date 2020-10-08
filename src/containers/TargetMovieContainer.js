@@ -15,7 +15,6 @@ const TargetMovieContainer = ({ id }) => {
                 }
             } = await getDetailMovies(id)
             setDetailMovie(movie)
-            // console.log('44', detailMovie)
             setLoading(false)
         }
 

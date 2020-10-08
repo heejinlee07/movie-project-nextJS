@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Truncate from '../../utils/truncate'
 
 export const Wrapper = styled.div`
     display: flex;
@@ -32,17 +33,17 @@ export const MovieYear = styled.div`
     margin-bottom: 15px;
 `
 
-export const MovieSummary = styled.div`
-    /* overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    -webkit-line-clamp: 5; */
-    height: 100px;
-    width: 300px;
-    /* -webkit-line-clamp: 5; */
-    /* overflow: hidden; */
-    text-overflow: ellipsis;
-    /* white-space: nowrap; */
+export const MovieSummary = styled.p`
+    ${Truncate('250px')}
+    overflow-x: hidden;
+    height: 200px;
+    margin-top: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `
 
 export const MoviesWrapper = styled.div`
