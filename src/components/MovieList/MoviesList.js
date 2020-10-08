@@ -12,7 +12,7 @@ import {
     MoviesMores
 } from './MoviesList.styles'
 
-export default function MoviesList({ movie }) {
+const MoviesList = ({ movie }) => {
     const { id, title, year, summary, medium_cover_image, rating } = movie
 
     return (
@@ -34,3 +34,5 @@ export default function MoviesList({ movie }) {
         </Wrapper>
     )
 }
+
+export default MoviesList

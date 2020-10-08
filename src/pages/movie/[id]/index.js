@@ -10,7 +10,7 @@ const Wrapper = styled.div`
     margin-top: 30px;
 `
 
-export default function Index() {
+const Index = () => {
     const router = useRouter()
     const { id } = router.query
 
@@ -26,3 +26,5 @@ export default function Index() {
         </>
     )
 }
+
+export default Index

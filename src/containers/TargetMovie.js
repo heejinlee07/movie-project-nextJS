@@ -15,15 +15,14 @@ import {
     MovieRating
 } from './TargetMovie.styles'
 
-function TargetMovie({ id }) {
-    // console.log(targetedId)
+const TargetMovie = ({ id }) => {
     const [isLoading, setLoading] = useState(false)
     const [detailMovie, setDetailMovie] = useState([])
 
     const router = useRouter()
 
     useEffect(() => {
-        async function getDetailList() {
+        const getDetailList = async () => {
             setLoading(true)
             const {
                 data: {

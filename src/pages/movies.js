@@ -20,7 +20,7 @@ const MoviesWrapper = styled.div`
     justify-content: center;
 `
 
-export default function Movies() {
+const Movies = () => {
     const [isLoading, setLoading] = useState(false)
     const [allMovies, setAllMovies] = useState([])
     const [page, setPage] = useState(1)
@@ -29,7 +29,7 @@ export default function Movies() {
     const router = useRouter()
 
     useEffect(() => {
-        async function getMovieList() {
+        const getMovieList = async () => {
             setLoading(true)
             const {
                 data: {
@@ -92,3 +92,5 @@ export default function Movies() {
         </>
     )
 }
+
+export default Movies

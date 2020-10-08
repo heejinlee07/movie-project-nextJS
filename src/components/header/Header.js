@@ -3,7 +3,7 @@ import { HeaderWrapper } from './Header.styles'
 import Link from 'next/link'
 import Button from '../common/button'
 
-function Header() {
+const Header = () => {
     return (
         <HeaderWrapper>
             <Link href='/' passHref>

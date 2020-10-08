@@ -1,7 +1,7 @@
 import Header from '../components/header'
 import { Wrapper, Introduce, List } from './index.styles'
 
-export default function Index() {
+const Index = () => {
     return (
         <>
             <Header />
@@ -20,3 +20,5 @@ export default function Index() {
         </>
     )
 }
+
+export default Index
