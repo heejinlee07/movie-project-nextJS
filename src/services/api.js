@@ -1,9 +1,7 @@
-import axios from 'axios'
+import axios from "axios";
 
-export const listApi = axios.create({
-    baseURL: 'https://yts.mx/api/v2/list_movies.json'
-})
+const Api = axios.create({
+  baseURL: "https://yts.mx/api/v2",
+});
 
-export const detailApi = axios.create({
-    baseURL: 'https://yts.mx/api/v2/movie_details.json'
-})
+export default Api;
