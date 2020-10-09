@@ -63,7 +63,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function CustomizedDialogs({ detailMovie, isLoadging }) {
+export default function CustomizedDialogs({ detailMovie, isLoading }) {
   const {
     medium_cover_image,
     title_long,
@@ -86,15 +86,21 @@ export default function CustomizedDialogs({ detailMovie, isLoadging }) {
     <div>
       <Button onClick={handleClickOpen}>modal</Button>
       <Dialog onClose={handleClose} open={open}>
-        {isLoadging && <h1>Now Loading...</h1>}
-        {!isLoadging && (
+        {isLoading && <h1>Now Loading...</h1>}
+        {!isLoading && (
           <>
             <DialogTitle id="customized-dialog-title" onClose={handleClose}>
               {title_long}
             </DialogTitle>
             <DialogContent dividers>
               <MovieWrapper>
-                <MoviePoster src={medium_cover_image} />
+                <MoviePoster
+                  src={medium_cover_image}
+                  onError={(e) =>
+                    (e.target.src =
+                      "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6")
+                  }
+                />
                 <MovieDetail>
                   <MovieLike>Like 👍 : {like_count}</MovieLike>
                   <MovieDownload>Download 💙 : {download_count}</MovieDownload>

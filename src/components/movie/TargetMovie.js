@@ -31,7 +31,13 @@ const TargetMovie = ({ isLoading, detailMovie }) => {
       {isLoading && <h1>Now Loading...</h1>}
       {!isLoading && (
         <Wrapper>
-          <MovieImg src={large_cover_image} />
+          <MovieImg
+            src={large_cover_image}
+            onError={(e) =>
+              (e.target.src =
+                "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6")
+            }
+          />
           <MovieDetails>
             <MovieTitle>{title_long}</MovieTitle>
             <MovieCount>
