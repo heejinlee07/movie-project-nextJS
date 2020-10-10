@@ -30,18 +30,26 @@ export const MovieTitle = styled.div`
   margin-bottom: 10px;
 `;
 
-export const MovieGenres = styled.div`
+export const GenreList = styled.div`
+  display: flex;
+  & > * {
+    margin-right: 5px;
+  }
+`;
+
+export const MovieGenre = styled.div`
   background-color: black;
   border-radius: 10px;
   color: white;
   margin-bottom: 10px;
+  padding: 5px;
 `;
 
 export const MovieYear = styled.div`
   margin-bottom: 15px;
 `;
 
-export const MovieSummary = styled.p`
+export const MovieSummary = styled.div`
   ${Truncate("250px")}
   overflow-x: hidden;
   height: 200px;

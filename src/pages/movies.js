@@ -43,7 +43,9 @@ const Movies = () => {
           data: { movies },
         },
       } = await getAllMovies(page, sort);
+      console.log("before", allMovies);
       setAllMovies((_allMovies) => _allMovies.concat(movies));
+      console.log("after", allMovies);
       setLoading(false);
     };
     getMovieList();

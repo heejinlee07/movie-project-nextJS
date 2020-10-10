@@ -6,7 +6,8 @@ import {
   MovieImg,
   MovieDetails,
   MovieTitle,
-  MovieGenres,
+  GenreList,
+  MovieGenre,
   MovieYear,
   MovieSummary,
   MovieRating,
@@ -26,9 +27,6 @@ const MoviesList = ({ movie }) => {
     genres,
   } = movie;
 
-  console.log(genres);
-  const movieGenres = genres.join(" ");
-  console.log(movieGenres);
   return (
     <Wrapper>
       <MovieImg
@@ -41,7 +39,11 @@ const MoviesList = ({ movie }) => {
       />
       <MovieDetails>
         <MovieTitle>{title}</MovieTitle>
-        <MovieGenres>{movieGenres}</MovieGenres>
+        <GenreList>
+          {genres.map((genre) => (
+            <MovieGenre>{genre}</MovieGenre>
+          ))}
+        </GenreList>
         <MovieYear>{year}</MovieYear>
         <MovieSummary>{summary}</MovieSummary>
       </MovieDetails>
