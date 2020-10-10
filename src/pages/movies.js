@@ -32,6 +32,7 @@ const Movies = () => {
   const [allMovies, setAllMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState("date_added");
+  const [hasMore, setHasMore] = useState(true);
 
   const router = useRouter();
 
@@ -43,9 +44,9 @@ const Movies = () => {
           data: { movies },
         },
       } = await getAllMovies(page, sort);
-      console.log("before", allMovies);
+      setHasMore(!!movies.length);
+      // setHasMore(page > 5 ? false : true);
       setAllMovies((_allMovies) => _allMovies.concat(movies));
-      console.log("after", allMovies);
       setLoading(false);
     };
     getMovieList();
@@ -72,7 +73,7 @@ const Movies = () => {
           next={getNextMovies}
           loader={<h1>is Loading...</h1>}
           inverse={false}
-          hasMore={true}
+          hasMore={hasMore}
           endMessage={<h1>You have seen it all!</h1>}
         >
           <ButtonList>

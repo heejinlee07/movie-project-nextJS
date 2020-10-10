@@ -19,7 +19,6 @@ export const MovieImg = styled.img`
 
 export const MovieDetails = styled.div`
   padding: 10px;
-  height: 300px;
   width: 400px;
   max-width: 50%;
 `;
@@ -32,6 +31,7 @@ export const MovieTitle = styled.div`
 
 export const GenreList = styled.div`
   display: flex;
+  flex-wrap: wrap;
   & > * {
     margin-right: 5px;
   }

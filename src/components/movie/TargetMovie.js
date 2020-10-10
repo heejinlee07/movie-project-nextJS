@@ -33,10 +33,11 @@ const TargetMovie = ({ isLoading, detailMovie }) => {
         <Wrapper>
           <MovieImg
             src={large_cover_image}
-            onError={(e) =>
-              (e.target.src =
-                "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6")
-            }
+            onError={(e) => {
+              e.target.src =
+                "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6";
+              e.target.style = "object-fit: cover";
+            }}
           />
           <MovieDetails>
             <MovieTitle>{title_long}</MovieTitle>

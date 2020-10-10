@@ -63,7 +63,12 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function CustomizedDialogs({ detailMovie, isLoading }) {
+export default function CustomizedDialogs({
+  detailMovie,
+  isLoading,
+  isOpen,
+  setOpen,
+}) {
   const {
     medium_cover_image,
     title_long,
@@ -73,19 +78,11 @@ export default function CustomizedDialogs({ detailMovie, isLoading }) {
     rating,
   } = detailMovie;
 
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button onClick={handleClickOpen}>modal</Button>
-      <Dialog onClose={handleClose} open={open}>
+      <Dialog onClose={handleClose} open={isOpen}>
         {isLoading && <h1>Now Loading...</h1>}
         {!isLoading && (
           <>
@@ -96,10 +93,11 @@ export default function CustomizedDialogs({ detailMovie, isLoading }) {
               <MovieWrapper>
                 <MoviePoster
                   src={medium_cover_image}
-                  onError={(e) =>
-                    (e.target.src =
-                      "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6")
-                  }
+                  onError={(e) => {
+                    e.target.src =
+                      "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6";
+                    e.target.style = "object-fit: cover";
+                  }}
                 />
                 <MovieDetail>
                   <MovieLike>Like 👍 : {like_count}</MovieLike>
