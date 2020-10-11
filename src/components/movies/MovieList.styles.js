@@ -1,12 +1,7 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  overflow-y: hidden;
+export const Wrapper = styled.div``;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
 export const ButtonList = styled.div`
   display: flex;
   justify-content: center;

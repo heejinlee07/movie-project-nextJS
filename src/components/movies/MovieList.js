@@ -33,6 +33,7 @@ const MovieList = ({
         loader={<h1>is Loading...</h1>}
         inverse={false}
         hasMore={hasMore}
+        scrollThreshold="100px"
         endMessage={<h1>You have seen it all!</h1>}
       >
         <ButtonList>
