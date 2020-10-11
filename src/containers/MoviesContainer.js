@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAllMovies } from "../services/movieApi";
-import Movies from "../pages/movies";
+import MovieList from "../components/movies/MovieList";
 
 const MoviesContainer = () => {
   const [isLoading, setLoading] = useState(false);
@@ -27,18 +27,9 @@ const MoviesContainer = () => {
 
   console.log(allMovies.length);
 
-  // const getNextMovies = () => {
-  //   setPage(page + 1);
-  // };
-
-  // const sortedMovies = (sort) => {
-  //   setAllMovies([]);
-  //   setSort(sort);
-  // };
-
   return (
     <div>
-      <Movies
+      <MovieList
         isLoading={isLoading}
         allMovies={allMovies}
         setAllMovies={setAllMovies}
