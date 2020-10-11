@@ -49,7 +49,7 @@ const Movie = ({ movie }) => {
           <MovieTitle>{title}</MovieTitle>
           <GenreList>
             {genres.map((genre) => (
-              <MovieGenre>{genre}</MovieGenre>
+              <MovieGenre key={genre}>{genre}</MovieGenre>
             ))}
           </GenreList>
           <MovieYear>{year}</MovieYear>

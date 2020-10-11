@@ -25,20 +25,16 @@ const MoviesContainer = () => {
     getMovieList();
   }, [page, sort]);
 
-  console.log(allMovies.length);
-
   return (
-    <div>
-      <MovieList
-        isLoading={isLoading}
-        allMovies={allMovies}
-        setAllMovies={setAllMovies}
-        hasMore={hasMore}
-        page={page}
-        setPage={setPage}
-        setSort={setSort}
-      />
-    </div>
+    <MovieList
+      isLoading={isLoading}
+      allMovies={allMovies}
+      setAllMovies={setAllMovies}
+      hasMore={hasMore}
+      page={page}
+      setPage={setPage}
+      setSort={setSort}
+    />
   );
 };
 

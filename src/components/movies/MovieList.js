@@ -1,5 +1,6 @@
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useRouter } from "next/router";
 import Movie from "../movies/Movie";
 import { Wrapper, ButtonList, MoviesWrapper } from "./MovieList.styles";
 import Button from "../common/Button";
@@ -13,6 +14,8 @@ const MovieList = ({
   setPage,
   setSort,
 }) => {
+  const router = useRouter();
+
   const getNextMovies = () => {
     setPage(page + 1);
   };
@@ -41,11 +44,11 @@ const MovieList = ({
           <Button onClick={() => sortedMovies("rating")}>별점순</Button>
         </ButtonList>
         {isLoading && <h1>Now Loading...</h1>}
-        {allMovies?.map((movie) => (
-          <MoviesWrapper>
-            <Movie key={movie.id} movie={movie} />
-          </MoviesWrapper>
-        ))}
+        <MoviesWrapper>
+          {allMovies?.map((movie, idx) => (
+            <Movie key={movie.imdb_code + idx} movie={movie} />
+          ))}
+        </MoviesWrapper>
       </InfiniteScroll>
     </Wrapper>
   );

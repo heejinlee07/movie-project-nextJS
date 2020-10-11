@@ -16,5 +16,7 @@ export const ButtonList = styled.div`
 
 export const MoviesWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
