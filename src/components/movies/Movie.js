@@ -48,7 +48,7 @@ const Movie = ({ movie }) => {
         <MovieDetails>
           <MovieTitle>{title}</MovieTitle>
           <GenreList>
-            {genres.map((genre) => (
+            {genres?.map((genre) => (
               <MovieGenre key={genre}>{genre}</MovieGenre>
             ))}
           </GenreList>

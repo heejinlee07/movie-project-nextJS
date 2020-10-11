@@ -1,8 +1,10 @@
-const Truncate = (width) => {
+const Truncate = (clamp) => {
   return `
- width: ${width};
- overflow: scroll;
+ overflow: hidden;
  text-overflow: ellipsis;
+ display: -webkit-box;
+ -webkit-box-orient: vertical;
+ -webkit-line-clamp: ${clamp};
  `;
 };
 

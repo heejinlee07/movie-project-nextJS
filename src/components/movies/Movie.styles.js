@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   border: 1px solid grey;
   margin: 10px;
   width: 600px;
+  height: 370px;
   max-width: 100%;
   border-radius: 10px;
 `;
@@ -18,9 +19,11 @@ export const MovieImg = styled.img`
 `;
 
 export const MovieDetails = styled.div`
-  padding: 10px;
+  padding: 20px;
   width: 400px;
+  height: 400px;
   max-width: 50%;
+  /* overflow: hidden; */
 `;
 
 export const MovieTitle = styled.div`
@@ -50,16 +53,8 @@ export const MovieYear = styled.div`
 `;
 
 export const MovieSummary = styled.div`
-  ${Truncate("250px")}
-  overflow-x: hidden;
-  height: 200px;
-  margin-top: 20px;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  ${Truncate("7")}
+  padding: 0 0 1px 0;
 `;
 
 export const MoviesWrapper = styled.div`
