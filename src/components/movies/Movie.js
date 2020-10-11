@@ -13,10 +13,10 @@ import {
   MovieRating,
   MoviesWrapper,
   MoviesMores,
-} from "./MoviesList.styles";
+} from "./Movie.styles";
 import TargetMovieContainer from "../../containers/TargetMovieContainer";
 
-const MoviesList = ({ movie }) => {
+const Movie = ({ movie }) => {
   const {
     id,
     title,
@@ -79,4 +79,4 @@ const MoviesList = ({ movie }) => {
   );
 };
 
-export default MoviesList;
+export default Movie;

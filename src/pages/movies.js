@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Head from "next/head";
-import InfiniteScroll from "react-infinite-scroll-component";
 import { useRouter } from "next/router";
-import Header from "../components/Header";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { getAllMovies } from "../services/movieApi";
 import MoviesList from "../components/movies/MoviesList";
+import Header from "../components/Header";
 import Button from "../components/common/Button";
+import MoviesContainer from "../containers/MoviesContainer";
 
 const Wrapper = styled.div`
   overflow-y: hidden;
@@ -27,47 +28,26 @@ const MoviesWrapper = styled.div`
   justify-content: center;
 `;
 
+/*{
+  isLoading,
+  allMovies,
+  setAllMovies,
+  hasMore,
+  page,
+  setPage,
+  setSort,
+}
+*/
+
 const Movies = () => {
-  const [isLoading, setLoading] = useState(false);
-  const [allMovies, setAllMovies] = useState([]);
-  const [page, setPage] = useState(1);
-  const [sort, setSort] = useState("date_added");
-  const [hasMore, setHasMore] = useState(true);
-
-  const router = useRouter();
-
-  useEffect(() => {
-    const getMovieList = async () => {
-      setLoading(true);
-      const {
-        data: {
-          data: { movies },
-        },
-      } = await getAllMovies(page, sort);
-      setHasMore(!!movies.length);
-      // setHasMore(page > 5 ? false : true);
-      setAllMovies((_allMovies) => _allMovies.concat(movies));
-      setLoading(false);
-    };
-    getMovieList();
-  }, [page, sort]);
-
-  const getNextMovies = () => {
-    setPage(page + 1);
-  };
-
-  const sortedMovies = (sort) => {
-    setAllMovies([]);
-    setSort(sort);
-  };
-
   return (
     <>
       <Head>
         <title>영화리스트</title>
       </Head>
       <Wrapper>
-        <Header />
+        <MoviesContainer />
+        {/* <Header />
         <InfiniteScroll
           dataLength={allMovies.length}
           next={getNextMovies}
@@ -90,7 +70,7 @@ const Movies = () => {
               <MoviesList key={movie.id} movie={movie} />
             </MoviesWrapper>
           ))}
-        </InfiniteScroll>
+        </InfiniteScroll> */}
       </Wrapper>
     </>
   );
