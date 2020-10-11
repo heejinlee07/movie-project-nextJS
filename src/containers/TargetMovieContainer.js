@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getDetailMovies } from "../services/movieApi";
-import TargetMovie from "../components/movie/TargetMovie";
+import TargetMovie from "../components/Movie/TargetMovie";
 import MovieModal from "../components/common/MovieModal/MovieModal";
 
 const TargetMovieContainer = ({ id, type = "page", isOpen, setOpen }) => {

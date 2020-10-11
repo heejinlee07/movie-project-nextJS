@@ -1,7 +1,7 @@
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useRouter } from "next/router";
-import Movie from "../movies/Movie";
+import Movie from "../Movies/Movie";
 import { Wrapper, ButtonList, MoviesWrapper } from "./MovieList.styles";
 import Button from "../common/Button";
 
