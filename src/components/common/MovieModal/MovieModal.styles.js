@@ -32,3 +32,9 @@ export const MovieDownload = styled.div``
 export const MovieRating = styled.div`
     margin-bottom: 20px;
 `
+export const LoadingMessage = styled.div`
+    height: 300px;
+    line-height: 300px;
+    width: 300px;
+    text-align: center;
+`
