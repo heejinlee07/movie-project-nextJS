@@ -20,7 +20,7 @@ const Movies = ({ isSsr }) => {
 
 Movies.getInitialProps = async context => {
     const { req } = context
-    console.log(context.req)
+    // console.log(context.req)
     //csr이면 undefined가 찍힘. ssr일 때 req가 요청한 것이니까.
 
     if (context.req) {
