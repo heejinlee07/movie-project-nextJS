@@ -58,8 +58,18 @@ const Movie = ({ movie }) => {
                 <MoviesWrapper>
                     <MovieRating> ★{rating}</MovieRating>
                     <MoviesMores>
-                        <Button onClick={handleClickOpen}>modal</Button>
-                        <LinkButton href='/movie/[id]' as={`movie/${id}`}>
+                        <Button
+                            onClick={handleClickOpen}
+                            height={'30px'}
+                            borderRadius={5}
+                        >
+                            modal
+                        </Button>
+                        <LinkButton
+                            href='/movie/[id]'
+                            as={`movie/${id}`}
+                            width={80}
+                        >
                             더보기
                         </LinkButton>
                     </MoviesMores>
