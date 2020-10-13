@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import Link from 'next/link'
+import { useState } from 'react'
+import TargetMovieContainer from '../../containers/TargetMovieContainer'
 import Button from '../common/Button'
 import {
     Wrapper,
@@ -14,7 +14,7 @@ import {
     MoviesWrapper,
     MoviesMores
 } from './Movie.styles'
-import TargetMovieContainer from '../../containers/TargetMovieContainer'
+import LinkButton from '../common/LinkButton'
 
 const Movie = ({ movie }) => {
     const {
@@ -59,11 +59,9 @@ const Movie = ({ movie }) => {
                     <MovieRating> ★{rating}</MovieRating>
                     <MoviesMores>
                         <Button onClick={handleClickOpen}>modal</Button>
-                        <Link href='/movie/[id]' as={`movie/${id}`} passHref>
-                            <Button key={id} width={'45px'}>
-                                더보기
-                            </Button>
-                        </Link>
+                        <LinkButton href='/movie/[id]' as={`movie/${id}`}>
+                            더보기
+                        </LinkButton>
                     </MoviesMores>
                 </MoviesWrapper>
             </Wrapper>
