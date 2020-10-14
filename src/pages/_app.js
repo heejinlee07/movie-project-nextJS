@@ -7,11 +7,6 @@ const App = ({ Component, pageProps }) => {
         <>
             <Head>
                 <title>😀 movie page</title>
-                <link
-                    rel='shortcut icon'
-                    href='../../public/favicon.ico'
-                    type='image/x-icon'
-                />
             </Head>
             <GlobalStyles />
             <Component {...pageProps} />

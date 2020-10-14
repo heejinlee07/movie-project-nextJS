@@ -1,40 +1,31 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import { useRouter } from 'next/router'
-import Button from '../../../components/common/Button'
-import styled from 'styled-components'
-import Head from 'next/head'
-import Header from '../../../components/Header'
-import TargetMovieContainer from '../../../containers/TargetMovieContainer'
+import { useRouter } from "next/router";
+import Button from "../../../components/common/Button";
+import styled from "styled-components";
+import Head from "next/head";
+import Header from "../../../components/Header";
+import TargetMovieContainer from "../../../containers/TargetMovieContainer";
 
 const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 30px;
-`
+`;
 
 const Index = ({ isSsr, targetSsrData }) => {
-    console.log('[isSsr]', isSsr)
-    console.log('[targetSsrData]', targetSsrData)
+    const router = useRouter();
 
-    const router = useRouter()
-    console.log('[router]', router)
-
-    const { id } = router.query
+    const { id } = router.query;
 
     return (
         <>
             <Head>
                 <title> 🎬 영화 {id}</title>
-                <meta name='description' content='특정 영화 페이지입니다.' />
-                <link
-                    rel='shortcut icon'
-                    href='/static/favicon.ico'
-                    type='image/x-icon'
-                />
+                <meta name="description" content="특정 영화 페이지입니다." />
             </Head>
             <Header />
-            <Button fontSize={20} padding={10} bgColor={'green'}>
-                {isSsr === true ? 'server-side' : 'client-side'}
+            <Button fontSize={20} padding={10} bgColor={"green"}>
+                {isSsr === true ? "server-side" : "client-side"}
             </Button>
             {isSsr && (
                 <Wrapper>
@@ -44,34 +35,28 @@ const Index = ({ isSsr, targetSsrData }) => {
             )}
             {!isSsr && (
                 <Wrapper>
-                    <TargetMovieContainer id={id} type='page' />
+                    <TargetMovieContainer id={id} type="page" />
                 </Wrapper>
             )}
         </>
-    )
-}
+    );
+};
 
-Index.getInitialProps = async context => {
-    console.log(context)
-    const { req, query } = context
+Index.getInitialProps = async (context) => {
+    const { req, query } = context;
 
     if (req) {
-        console.log('serverside')
-        console.log('req', req)
-        console.log('req', query)
-
-        const isSsr = true
+        const isSsr = true;
         const response = await fetch(
             `https://yts.mx/api/v2/movie_details.json?movie_id=${query.id}`
-        )
-        const targetSsrData = await response.json()
+        );
+        const targetSsrData = await response.json();
 
-        return { isSsr, targetSsrData }
+        return { isSsr, targetSsrData };
     } else {
-        const isSsr = false
-        console.log('clientside')
-        return { isSsr }
+        const isSsr = false;
+        return { isSsr };
     }
-}
+};
 
-export default Index
+export default Index;

@@ -9,11 +9,6 @@ const Index = ({ isSsr }) => {
         <>
             <Head>
                 <meta name='description' content='메인페이지입니다.' />
-                <link
-                    rel='shortcut icon'
-                    href='/static/favicon.ico'
-                    type='image/x-icon'
-                />
             </Head>
             <Header />
             <Wrapper>
