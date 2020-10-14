@@ -20,7 +20,9 @@ const Index = ({ isSsr, targetSsrData }) => {
     return (
         <>
             <Head>
-                <title> 🎬 영화 {id}</title>
+                {isSsr && (
+                    <title> 🎬 영화 {targetSsrData.data.movie.title}</title>
+                )}
                 <meta name="description" content="특정 영화 페이지입니다." />
             </Head>
             <Header />

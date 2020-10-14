@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { useRouter } from 'next/router'
-import MoodBadIcon from '@material-ui/icons/MoodBad'
-import Button from '../components/common/Button'
+import styled from "styled-components";
+import { useRouter } from "next/router";
+import MoodBadIcon from "@material-ui/icons/MoodBad";
+import Button from "../components/common/Button";
 
 const Wrapper = styled.div`
     width: 100vw;
@@ -11,7 +11,11 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-`
+
+    & > * {
+        text-transform: uppercase;
+    }
+`;
 
 const InnerWrapper = styled.div`
     & > h1 {
@@ -22,31 +26,30 @@ const InnerWrapper = styled.div`
         font-size: 30px;
         margin-bottom: 20px;
     }
-`
+`;
 
 const Custom404 = () => {
-    const router = useRouter()
+    const router = useRouter();
 
     return (
         <Wrapper>
             <InnerWrapper>
-                <MoodBadIcon style={{ fontSize: '200px', color: 'grey' }} />
+                <MoodBadIcon style={{ fontSize: "200px", color: "grey" }} />
                 <h1>oops!</h1>
-                <h2>that Page dosen't exist or is unavailable</h2>
-
+                <h2>that Page doesn't exist or is unavailable</h2>
                 <Button
-                    bgColor={'lightgrey'}
-                    color={'black'}
-                    hoverBgColor={'black'}
-                    hoverColor={'white'}
+                    bgColor={"lightgrey"}
+                    color={"black"}
+                    hoverBgColor={"black"}
+                    hoverColor={"white"}
                     padding={12}
-                    onClick={() => router.push('/')}
+                    onClick={() => router.push("/")}
                 >
-                    go back to home
+                    GO BACK TO HOME
                 </Button>
             </InnerWrapper>
         </Wrapper>
-    )
-}
+    );
+};
 
-export default Custom404
+export default Custom404;
