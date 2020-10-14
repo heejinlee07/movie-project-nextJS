@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import { useRouter } from 'next/router'
 import Button from '../../../components/common/Button'
 import styled from 'styled-components'
@@ -23,7 +24,13 @@ const Index = ({ isSsr, targetSsrData }) => {
     return (
         <>
             <Head>
-                <title>영화 {id}</title>
+                <title> 🎬 영화 {id}</title>
+                <meta name='description' content='특정 영화 페이지입니다.' />
+                <link
+                    rel='shortcut icon'
+                    href='/static/favicon.ico'
+                    type='image/x-icon'
+                />
             </Head>
             <Header />
             <Button fontSize={20} padding={10} bgColor={'green'}>

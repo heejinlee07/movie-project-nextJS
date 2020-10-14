@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import MoviesContainer from '../containers/MoviesContainer'
 import fetch from 'isomorphic-unfetch'
 import Head from 'next/head'
@@ -11,7 +12,8 @@ const Movies = ({ isSsr, isSsrData }) => {
     return (
         <>
             <Head>
-                <title>영화리스트</title>
+                <title> 🎫 영화리스트</title>
+                <meta name='description' content='영화 리스트 페이지입니다.' />
             </Head>
             <Header />
             <Button fontSize={20} padding={10} bgColor={'green'}>

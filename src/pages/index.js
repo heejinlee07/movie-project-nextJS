@@ -1,10 +1,20 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import Button from '../components/common/Button'
+import Head from 'next/head'
 import Header from '../components/Header'
 import { Wrapper, Introduce, List } from '../../styles/indexStyles'
 
 const Index = ({ isSsr }) => {
     return (
         <>
+            <Head>
+                <meta name='description' content='메인페이지입니다.' />
+                <link
+                    rel='shortcut icon'
+                    href='/static/favicon.ico'
+                    type='image/x-icon'
+                />
+            </Head>
             <Header />
             <Wrapper>
                 <Introduce>사용된 라이브러리 및 프레임 워크</Introduce>
