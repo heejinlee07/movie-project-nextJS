@@ -1,6 +1,6 @@
 import Button from '../components/common/Button'
 import Header from '../components/Header'
-import { Wrapper, Introduce, List } from '../../styles/index.styles'
+import { Wrapper, Introduce, List } from '../../styles/indexStyles'
 
 const Index = ({ isSsr }) => {
     return (

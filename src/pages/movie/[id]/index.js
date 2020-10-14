@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 
 const Index = ({ isSsr, targetSsrData }) => {
     console.log('[isSsr]', isSsr)
-    console.log('[isSsrData]', targetSsrData)
+    console.log('[targetSsrData]', targetSsrData)
 
     const router = useRouter()
     console.log('[router]', router)
@@ -27,15 +27,15 @@ const Index = ({ isSsr, targetSsrData }) => {
             </Head>
             <Header />
             <Button fontSize={20} padding={10} bgColor={'green'}>
-                {isSsr}
+                {isSsr === true ? 'server-side' : 'client-side'}
             </Button>
-            {isSsr === 'server-side' && (
+            {isSsr && (
                 <Wrapper>
                     <div>{targetSsrData.data.movie.id}</div>
                     <div>{targetSsrData.data.movie.title}</div>
                 </Wrapper>
             )}
-            {isSsr === 'client-side' && (
+            {!isSsr && (
                 <Wrapper>
                     <TargetMovieContainer id={id} type='page' />
                 </Wrapper>
@@ -52,18 +52,18 @@ Index.getInitialProps = async context => {
         console.log('serverside')
         console.log('req', req)
         console.log('req', query)
+
+        const isSsr = true
+        const response = await fetch(
+            `https://yts.mx/api/v2/movie_details.json?movie_id=${query.id}`
+        )
+        const targetSsrData = await response.json()
+
+        return { isSsr, targetSsrData }
     } else {
+        const isSsr = false
         console.log('clientside')
-    }
-
-    const response = await fetch(
-        `https://yts.mx/api/v2/movie_details.json?movie_id=${query.id}`
-    )
-    const targetSsrData = await response.json()
-
-    return {
-        isSsr: req ? 'server-side' : 'client-side',
-        targetSsrData
+        return { isSsr }
     }
 }
 

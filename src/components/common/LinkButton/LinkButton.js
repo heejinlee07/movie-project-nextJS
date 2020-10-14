@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import Link from 'next/link'
-import { LinkAnchor } from './LinkButton.styles'
+import { LinkAnchor } from './LinkButtonStyles'
 
 const LinkButton = forwardRef(
     ({ onClick, as, href, children, passHref, ...rest }, ref) => {

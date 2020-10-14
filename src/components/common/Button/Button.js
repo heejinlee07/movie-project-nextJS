@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonUi } from './Button.styles'
+import { ButtonUi } from './ButtonStyles'
 
 const Button = ({ children, ...rest }) => {
     return <ButtonUi {...rest}>{children}</ButtonUi>

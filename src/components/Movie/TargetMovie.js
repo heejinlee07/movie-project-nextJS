@@ -12,7 +12,7 @@ import {
     MovieSummary,
     MoviesMores,
     MovieRating
-} from './TargetMovie.styles'
+} from './TargetMovieStyles'
 
 const TargetMovie = ({ isLoading, detailMovie }) => {
     const router = useRouter()

@@ -13,7 +13,7 @@ import {
     MovieRating,
     MoviesWrapper,
     MoviesMores
-} from './Movie.styles'
+} from './MovieStyles'
 import LinkButton from '../common/LinkButton'
 
 const Movie = ({ movie }) => {
