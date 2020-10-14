@@ -18,7 +18,7 @@ import {
     MovieRating,
     MovieSummary,
     LoadingMessage
-} from './MovieModal.styles'
+} from './MovieModalStyles'
 
 const styles = theme => ({
     root: {

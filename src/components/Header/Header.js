@@ -1,6 +1,6 @@
 // import React from "react";
 import LinkButton from '../common/LinkButton'
-import { HeaderWrapper } from './Header.styles'
+import { HeaderWrapper } from './HeaderStyles'
 
 const Header = () => {
     return (
