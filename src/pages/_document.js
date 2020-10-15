@@ -1,6 +1,15 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import * as Sentry from '@sentry/browser'
 import { ServerStyleSheet } from 'styled-components'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+
+process.on('unhandledRejection', err => {
+    Sentry.captureException(err)
+})
+
+process.on('uncaughtException', err => {
+    Sentry.captureException(err)
+})
 
 export default class MyDocument extends Document {
     static async getInitialProps(ctx) {
@@ -40,7 +49,7 @@ export default class MyDocument extends Document {
                     />
                     <meta property='og:description' content='movie list page' />
                     <meta property='og:title' content='movie list page' />
-                    <script
+                    {/* <script
                         dangerouslySetInnerHTML={{
                             __html: `
     (function(j,en,ni,fer) {
@@ -52,7 +61,7 @@ export default class MyDocument extends Document {
     }(window,document,'script','1274b87d'));
 `
                         }}
-                    ></script>
+                    ></script> */}
                 </Head>
                 <body>
                     <Main />

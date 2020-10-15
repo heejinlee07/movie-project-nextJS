@@ -17,6 +17,10 @@ import {
 const TargetMovie = ({ isLoading, detailMovie }) => {
     const router = useRouter()
 
+    router.onRouteChangeStart = url => {
+        console.log(`Route가 ${url}로 변경될 것입니다...!`)
+    }
+
     const {
         large_cover_image,
         title_long,

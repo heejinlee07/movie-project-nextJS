@@ -1,13 +1,33 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import Head from "next/head";
-import GlobalStyles from "../../styles/GlobalStyles";
+import * as Sentry from '@sentry/react'
+import { Integrations } from '@sentry/tracing'
+import Head from 'next/head'
+import GlobalStyles from '../../styles/GlobalStyles'
 
-const App = ({ Component, pageProps }) => {
+/**
+ * @todo
+ * https://docs.sentry.io/platforms/javascript/guides/react/configuration/integrations/react-router/
+ * add transaction
+ */
+
+if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
+    Sentry.init({
+        enabled: process.env.NODE_ENV === 'production',
+        dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+        integrations: [new Integrations.BrowserTracing()]
+    })
+}
+
+export function reportWebVitals(metric) {
+    // console.log(metric)
+}
+
+const App = ({ Component, pageProps, err }) => {
     return (
         <>
             <Head>
                 <title>😀 movie page</title>
-                <script
+                {/* <script
                     dangerouslySetInnerHTML={{
                         __html: `
     (function(j,en,ni,fer) {
@@ -17,14 +37,14 @@ const App = ({ Component, pageProps }) => {
         a.src='https://d-collect.jennifersoft.com/'+fer+'/demian.js?'+b;a.async=true;
         en.getElementsByTagName(ni)[0].parentNode.appendChild(a);
     }(window,document,'script','1274b87d'));
-`,
+`
                     }}
-                ></script>
+                ></script> */}
             </Head>
             <GlobalStyles />
-            <Component {...pageProps} />
+            <Component {...pageProps} err={err} />
         </>
-    );
-};
+    )
+}
 
-export default App;
+export default Sentry.withProfiler(App)
