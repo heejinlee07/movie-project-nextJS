@@ -1,4 +1,3 @@
-// import React from "react";
 import LinkButton from '../common/LinkButton'
 import { HeaderWrapper } from './HeaderStyles'
 
