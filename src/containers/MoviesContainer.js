@@ -24,7 +24,6 @@ const MoviesContainer = () => {
         }
         getMovieList()
     }, [page, sort])
-
     return (
         <MovieList
             isLoading={isLoading}

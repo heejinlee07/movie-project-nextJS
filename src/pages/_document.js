@@ -62,6 +62,10 @@ export default class MyDocument extends Document {
 `
                         }}
                     ></script> */}
+                    <meta
+                        name='sentry-trace'
+                        content='{{ span.toTraceparent() }}'
+                    />
                 </Head>
                 <body>
                     <Main />
